@@ -17,7 +17,7 @@ let poc = fs.readFile('./pair_abi.json', 'utf-8', (err, data) => { //read abi de
         let abi = JSON.parse(data);
         let web3 = new Web3(new Web3.providers.WebsocketProvider("yourProvider"), options);
           let contract = new web3.eth.Contract(abi, '0x11Dd3D621376e404a70f0835551208BF527003b3'); // second parameter is the contract adress of the corresponding abi
-          contract.getPastevents().allEvents() // create contract object and tap in all Events emitted
+          contract.events.allEvents() // create contract object and tap in all Events emitted
           .on("connected", function(subscriptionId){
               console.log("CONNECTED")
               console.log(subscriptionId); //just returns subscriptionID
